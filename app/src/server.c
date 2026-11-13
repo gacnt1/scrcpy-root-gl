@@ -222,9 +222,14 @@ execute_server(struct sc_server *server,
     if (params->root) {
         // AID_SYSTEM: may create a secure display, so FLAG_SECURE windows
         // are not black
-        cmd[count++] = "su";
-        cmd[count++] = "1000";
+        cmd[count++] = "/data/local/tmp/su";
         cmd[count++] = "-c";
+        cmd[count++] = "/data/local/tmp/busybox";
+        cmd[count++] = "setuidgid";
+        cmd[count++] = "1000";
+        cmd[count++] = "runcon";
+        cmd[count++] = "u:r:system_app:s0";
+        cmd[count++] = "/system/bin/env";
     }
     cmd[count++] = "CLASSPATH=" SC_DEVICE_SERVER_PATH;
     cmd[count++] = "app_process";
