@@ -12,9 +12,9 @@
 > scrcpy --root
 > ```
 >
-> The device needs `su` that `adb shell` may use (Magisk/KernelSU: grant
-> *Shell*). Tested on Android 15. The idea comes from [RiggiG/scrcpy-root]
-> (scrcpy v2.1); this port also handles Android 14+, where the display APIs
+> The device needs `/data/local/tmp/su` and `/data/local/tmp/busybox` that
+> GhostLock may use. Tested on Android 12+. Without any Magisk/KernelSU
+> maneger. This port also handles Android 14+, where the display APIs
 > moved. Without `--root`, it behaves exactly like scrcpy v5.0.1.
 >
 > [scrcpy]: https://github.com/Genymobile/scrcpy
